@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :models
   get 'home/about'
+  get 'home/lookup'
+  post "/home/lookup" => "home/lookup" #this was for the lookup file I decided not to implement
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
