@@ -21,18 +21,24 @@
    
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "About Us", home_about_path %></li>
-        <li><%= link_to "Lookup", home_lookup_path %></li>
 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">My Wallet</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Settings</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Logout</a></li>
-          </ul>
-        </li>
+        <% if model_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">My Wallet</a></li>
+              <li><%= link_to "Edit Profile", edit_model_registration_path %></li>
+              <li><a href="#">Settings</a></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "Logout", destroy_model_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Sign Up", new_model_registration_path %></li>
+          <li><%= link_to "Login", new_model_session_path %></li>
+        <% end %>
+
+        
         
       <form class="navbar-form navbar-left">
         <div class="form-group">
