@@ -1,0 +1,32 @@
+
+<h1>Listing Cryptos Trackers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>User</th>
+      <th>Cost per</th>
+      <th>Amount owned</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cryptos_trackers.each do |cryptos_tracker| %>
+      <tr>
+        <td><%= cryptos_tracker.symbol %></td>
+        <td><%= cryptos_tracker.user_id %></td>
+        <td><%= cryptos_tracker.cost_per %></td>
+        <td><%= cryptos_tracker.amount_owned %></td>
+        <td><%= link_to 'Show', cryptos_tracker %></td>
+        <td><%= link_to 'Edit', edit_cryptos_tracker_path(cryptos_tracker) %></td>
+        <td><%= link_to 'Destroy', cryptos_tracker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cryptos tracker', new_cryptos_tracker_path %>

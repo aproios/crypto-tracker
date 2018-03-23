@@ -1,0 +1,2 @@
+class BdcController < ApplicationController
+end

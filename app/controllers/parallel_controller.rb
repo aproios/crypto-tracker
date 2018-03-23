@@ -1,0 +1,2 @@
+class ParallelController < ApplicationController
+end

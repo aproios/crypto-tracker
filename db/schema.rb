@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323043458) do
+ActiveRecord::Schema.define(version: 20180323124917) do
+
+  create_table "cryptos_trackers", force: :cascade do |t|
+    t.string   "symbol"
+    t.integer  "user_id"
+    t.decimal  "cost_per"
+    t.decimal  "amount_owned"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "cryptos_trackers", ["user_id"], name: "index_cryptos_trackers_on_user_id"
 
   create_table "models", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

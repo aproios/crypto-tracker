@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cryptos_trackers
   devise_for :models
   get 'home/about'
   get 'home/lookup'
